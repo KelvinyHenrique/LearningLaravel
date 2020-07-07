@@ -17,10 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', function(){
-    return view('Teste');
+
+Route::prefix('/config')->group(function(){
+    Route::get('/', 'ConfigController@index');
+    Route::get('info', 'ConfigController@info');
+    Route::get('permissoes', 'ConfigController@permissoes');
 });
 
-Route::get('/noticia/{slug}', function ($slug){
-    echo "Slug: ".$slug;
+Route::fallback(function(){
+    return view('404');
 });
