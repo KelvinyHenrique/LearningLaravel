@@ -16,13 +16,22 @@ class ConfigController extends Controller
             $cidade = 'Hoje não';
         }
 
+        $lista = [
+            'farinha',
+            'ovo',
+            'fermento',
+            'teste'
+        ];
+
         $data = [
             'name' => 'Kelviny',
             'email' => 'kelvinyhenrique17@gmail.com',
             'idade' => '90',
             'cidade' => $cidade,
+            'lista' => $lista,
 
         ];
+
         return view('admin.config', $data);
     }
 

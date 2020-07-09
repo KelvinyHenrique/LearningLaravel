@@ -5,7 +5,7 @@
 @section('content')
 
     <h1>CONFIGURAÇÕES</h1>
-
+{{--
 Meu nome é {{ $name }} meu email é {{$email}} é minha idade é {{$idade}}<br/>
     @if($idade > 18)
         Eu sou maoior de idade<br/><br/>
@@ -21,6 +21,26 @@ Meu nome é {{ $name }} meu email é {{$email}} é minha idade é {{$idade}}<br/
     @empty($cidade)
         Não existe uma cidade<br/>
     @endempty
+
+    <hr/>
+    @for($q=1;$q<=10;$q++)
+        O valor de $q é: {{$q}}<br/>
+        <hr/>
+    @endfor
+ --}}
+
+    Lista do bolo:
+
+    @if(empty($lista) == false)
+                @foreach($lista as $item)
+                    <li>{{$item}}</li>
+                @endforeach
+    @endif
+    <ul>
+
+
+    </ul>
+
 
     <form method="post">
         @csrf
