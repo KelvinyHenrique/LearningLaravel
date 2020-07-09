@@ -9,9 +9,18 @@ class ConfigController extends Controller
 {
     public function index(Request $request)
     {
+
+        if ($request->input('cidade') == null) {
+            $cidade = $request->input('cidade');
+        } else {
+            $cidade = 'Hoje não';
+        }
+
         $data = [
             'name' => 'Kelviny',
             'email' => 'kelvinyhenrique17@gmail.com',
+            'idade' => '90',
+            'cidade' => $cidade,
 
         ];
         return view('admin.config', $data);

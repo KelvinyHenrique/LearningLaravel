@@ -6,16 +6,30 @@
 
     <h1>CONFIGURAÇÕES</h1>
 
-    Meu nome é {{ $name }} meu email é {{$email}}
+Meu nome é {{ $name }} meu email é {{$email}} é minha idade é {{$idade}}<br/>
+    @if($idade > 18)
+        Eu sou maoior de idade<br/><br/>
+    @else
+        eu não sou maior de idade<br/><br/>
+    @endif
 
-    Versão:{{$versao}}
+
+    @isset($versao)
+        Existe uma versão é e a {{$versao}}<br/><br/>
+    @endisset
+
+    @empty($cidade)
+        Não existe uma cidade<br/>
+    @endempty
 
     <form method="post">
         @csrf
-        <label for="name">Nome</label>
-        <input type="text" name="name"/>
-        <label for="email">Email</label>
-        <input type="text" name="email"/>
+        <label for="name">Nome</label><br/><br/>
+        <input type="text" name="name"/><br/><br/>
+        <label for="email">Email</label><br/><br/>
+        <input type="text" name="email"/><br/><br/>
+        <label for="cidade">Cidade</label><br/><br/>
+        <input type="text" name="cidade"/><br/><br/><br/>
         <input type="submit" value="Enviar">
     </form>
 
