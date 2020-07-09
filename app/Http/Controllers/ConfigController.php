@@ -9,10 +9,12 @@ class ConfigController extends Controller
 {
     public function index(Request $request)
     {
-        $data = $request->all();
+        $data = [
+            'name' => 'Kelviny',
+            'email' => 'kelvinyhenrique17@gmail.com',
 
-        echo $data['name'];
-        return view('config');
+        ];
+        return view('admin.config', $data);
     }
 
     public function info()

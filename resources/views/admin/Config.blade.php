@@ -1,5 +1,6 @@
 <h1>CONFIGURAÇÕES</h1>
 
+Meu nome é {{ $name }} meu email é {{$email}}
 
 <form method="post">
     @csrf
