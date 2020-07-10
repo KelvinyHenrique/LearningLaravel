@@ -3,12 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ConfigController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('config');
+
+        if ($request->input('cidade') == null) {
+            $cidade = $request->input('cidade');
+        } else {
+            $cidade = 'Hoje não';
+        }
+
+        $lista = [
+            'farinha',
+            'ovo',
+            'fermento',
+            'teste'
+        ];
+
+        $data = [
+            'name' => 'Kelviny',
+            'email' => 'kelvinyhenrique17@gmail.com',
+            'idade' => '90',
+            'cidade' => $cidade,
+            'lista' => $lista,
+
+        ];
+
+        return view('admin.config', $data);
     }
 
     public function info()

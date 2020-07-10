@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::prefix('/config')->group(function(){
     Route::get('/', 'ConfigController@index');
+    Route::post('/', 'ConfigController@index');
     Route::get('info', 'ConfigController@info');
     Route::get('permissoes', 'ConfigController@permissoes');
 });
