@@ -5,6 +5,13 @@
 @section('content')
 
     <h1>CONFIGURAÇÕES</h1>
+
+
+
+    <x-alert>
+        Conteudo que eu quiser...
+    </x-alert>
+
 {{--
 Meu nome é {{ $name }} meu email é {{$email}} é minha idade é {{$idade}}<br/>
     @if($idade > 18)
