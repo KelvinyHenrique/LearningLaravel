@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController');
+Route::get('/login', function(){
+    echo 'Página de Login';
+})->name('login');
 
 Route::prefix('/tarefas')->group(function(){
     Route::get('/', 'TarefasController@list')->name('tarefas.list'); //Listagem de Tarefas
@@ -31,7 +34,7 @@ Route::prefix('/tarefas')->group(function(){
 });
 
 Route::prefix('/config')->group(function(){
-    Route::get('/', 'ConfigController@index');
+    Route::get('/', 'ConfigController@index')->middleware('auth');
     Route::post('/', 'ConfigController@index');
     Route::get('info', 'ConfigController@info');
     Route::get('permissoes', 'ConfigController@permissoes');
@@ -40,3 +43,7 @@ Route::prefix('/config')->group(function(){
 Route::fallback(function(){
     return view('404');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
