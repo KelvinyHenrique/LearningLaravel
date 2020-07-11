@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController');
 
 Route::prefix('/tarefas')->group(function(){
     Route::get('/', 'TarefasController@list')->name('tarefas.list'); //Listagem de Tarefas
